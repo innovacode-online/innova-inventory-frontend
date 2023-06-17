@@ -1,7 +1,15 @@
 import { FC } from 'react'
+import { MainLayout } from '../../layouts'
+import { PageHeader } from '../../components'
 
 export const CategoriesPage: FC = () => {
     return (
-        <div>CategoriesPage</div>
+        <MainLayout>
+            <PageHeader 
+                path={'/categories/new'} 
+                textBtn={'Agregar categoria'} 
+                title={'Gestion de categorias'}
+            />
+        </MainLayout>
     )
 }

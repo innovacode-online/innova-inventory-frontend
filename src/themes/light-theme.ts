@@ -3,49 +3,46 @@ import { createTheme } from '@mui/material/styles';
 export const lightTheme = createTheme({
     typography: {
         fontFamily: [
-            'Nunito',
-            '-apple-system',
-            'BlinkMacSystemFont',
-            '"Segoe UI"',
-            'Roboto',
-            '"Helvetica Neue"',
-            'Arial',
-            'sans-serif',
-            '"Apple Color Emoji"',
-            '"Segoe UI Emoji"',
-            '"Segoe UI Symbol"',
+            'Poppins',
         ].join(','),
     },
 
     palette: {
         mode: 'light',
+        background:{
+            default:'#f5f6f6'
+        },
         primary: {
-            main: '#1E1E1E'
+            main: '#37b87f'
         },
         secondary: {
             main: '#3A64D8'
         },
         info: {
-            main: '#fff'
+            main:'#fff',
+            dark:'#242f51',
+            light:'#f5f6f6'
         }
     },
     components: {
-        MuiLink: {
-            defaultProps: {
-                underline: 'none',
-
-            },
-        },
         MuiAppBar: {
             defaultProps: {
                 elevation: 0,
-                position: 'fixed',
+                position: 'relative',
             },
             styleOverrides: {
                 root: {
-                    backgroundColor: 'white',
-                    height: 60
+                    backgroundColor: '#232233',
+                    color:'#f8f9f8',
+                    padding:'1rem 0'
                 },
+            }
+        },
+        MuiListItemText:{
+            styleOverrides:{
+                root:{
+                    color:'#f5f6f6'
+                }
             }
         },
 
@@ -57,7 +54,7 @@ export const lightTheme = createTheme({
                 },
                 h2: {
                     fontSize: 20,
-                    fontWeight: 500
+                    fontWeight: 600
                 },
                 subtitle1: {
                     fontSize: 18,
@@ -70,23 +67,33 @@ export const lightTheme = createTheme({
         MuiButton: {
             defaultProps: {
                 variant: 'contained',
-                size: 'small',
+                size: 'medium',
                 disableElevation: true,
-                color: 'info'
+                color: 'primary',
             },
             styleOverrides: {
                 root: {
                     textTransform: 'none',
                     boxShadow: 'none',
-                    borderRadius: 10,
+                    borderRadius: '5px',
+                    color:'#f5f6f6',
+                    gap:'.5rem',
                     ":hover": {
-                        backgroundColor: 'rgba(0,0,0,0.05)',
+                        // backgroundColor: 'rgba(0,0,0,0.05)',
                         transition: 'all 0.3s ease-in-out'
                     }
                 }
             }
         },
 
+        MuiList:{
+            defaultProps: { },
+            styleOverrides: {
+                root: {
+                    display: 'flex',
+                }
+            }
+        },
 
         MuiCard: {
             defaultProps: {

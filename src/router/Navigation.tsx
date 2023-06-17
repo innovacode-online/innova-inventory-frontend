@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import { Routes, Route , Navigate} from 'react-router-dom'
 
-import { CategoriesPage, LoginPage, ProductsPage, SalesPage } from '../pages'
+import { CategoriesPage, LoginPage, NewCategoryPage, ProductsPage, SalesPage, NewSalePage, NewProductPage } from '../pages'
 
 export const Navigation: FC = () => {
     return (
@@ -12,8 +12,13 @@ export const Navigation: FC = () => {
             {/* DASHBOARD */}
             {/* <Route index element={ <ProductsPage/> }/> */}
             <Route path='/products' element={ <ProductsPage/> }/>
+            <Route path='/products/new' element={ <NewProductPage/> }/>
+            
             <Route path='/categories' element={ <CategoriesPage/> }/>
+            <Route path='/categories/new' element={ <NewCategoryPage/> }/>
+            
             <Route path='/sales' element={ <SalesPage/> }/>
+            <Route path='/sales/new' element={ <NewSalePage/> }/>
             <Route path='/' element={ <Navigate to={'products'}/> } />
         </Routes>
     )
