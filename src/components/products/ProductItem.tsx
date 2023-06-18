@@ -1,9 +1,10 @@
-import { FC } from 'react'
+import { FC, useContext } from 'react'
 import { Product } from '../../interfaces';
 
 import { IoEyeOutline } from "react-icons/io5";
 import { AiOutlineDelete, AiOutlineEdit } from "react-icons/ai";
 import { Box, Card, Grid, IconButton, Typography } from '@mui/material'
+import { ProductContext } from '../../context';
 
 
 interface Props {
@@ -11,6 +12,9 @@ interface Props {
 }
 
 export const ProductItem: FC<Props> = ({ product }) => {
+
+    const { deleteProductById } = useContext(ProductContext)
+
     return (
         <Card sx={{ mb:3, padding:'2rem' }}>
             <Grid container spacing={3}>
@@ -49,7 +53,7 @@ export const ProductItem: FC<Props> = ({ product }) => {
                         <IconButton color='secondary'>
                             <AiOutlineEdit/>
                         </IconButton>
-                        <IconButton color='secondary'>
+                        <IconButton color='secondary' onClick={() => deleteProductById( product.id )}>
                             <AiOutlineDelete/>
                         </IconButton>
                     </Box>

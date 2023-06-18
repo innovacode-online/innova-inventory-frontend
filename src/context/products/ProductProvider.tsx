@@ -42,13 +42,22 @@ export const ProductProvider:FC<PropsProvider> = ({ children }) => {
             const {data: imageUrl} = await inventoryDb.post('/upload', formData )
             
             //? UPLOAD PRODUCT
-            const { data } = await inventoryDb.post('/products', {...product, image: imageUrl} );
+            await inventoryDb.post('/products', {...product, image: imageUrl} );
             getAllProducts();
             navigate('/products')
         } catch (error) {
             console.log(error);
         }
         
+    }
+
+    const deleteProductById = async (id: number): Promise<void> => {
+        try {
+            await inventoryDb.delete(`/products/${ id }`);
+            getAllProducts();
+        } catch (error) {   
+            console.log(error);
+        }
     }
 
     useEffect(() => {
@@ -62,7 +71,9 @@ export const ProductProvider:FC<PropsProvider> = ({ children }) => {
             value={{
                 products,
                 isLoading,
-                createProduct
+
+                createProduct,
+                deleteProductById,
             }}
         >
             { children }

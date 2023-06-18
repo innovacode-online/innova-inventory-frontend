@@ -6,6 +6,7 @@ interface ContextProps {
     isLoading: boolean;
 
     createProduct: (image: any, product: { name:string, description:string, stock:number, category_id:string, price:string }) => Promise<void>
+    deleteProductById: (id: number) => Promise<void>
 }
 
 export const ProductContext = createContext( {} as ContextProps );
