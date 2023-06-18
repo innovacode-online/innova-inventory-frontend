@@ -1,4 +1,4 @@
-import { useState, useContext, ChangeEvent } from 'react';
+import { useState, useContext } from 'react';
 import { CategoryContext, ProductContext } from '../../context';
 
 import { Button, FormControl, InputLabel, Select, TextField, MenuItem, SelectChangeEvent, Typography, Grid } from '@mui/material'
@@ -8,7 +8,7 @@ export const NewProductForm = () => {
     const { createProduct } = useContext( ProductContext );
 
     const { categories } = useContext( CategoryContext );
-    const [newProduct, setNewProduct] = useState({ name:'', description:'', stock:0, category_id:'1'})
+    const [newProduct, setNewProduct] = useState({ name:'', description:'', stock:0, category_id:'1', price:''})
     const [image, setImage] = useState<any>(null)
 
 
@@ -92,7 +92,7 @@ export const NewProductForm = () => {
                         }
                     </Select>
                 </FormControl>
-                <Button sx={{ mt:3, width:'100%' }} onClick={handleSubmit}>Crear categoria</Button>
+                <Button sx={{ mt:3, width:'100%' }} onClick={handleSubmit}>Crear producto</Button>
             </Grid>
         </Grid>
     )

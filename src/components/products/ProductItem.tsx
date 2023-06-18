@@ -1,10 +1,11 @@
 import { FC, useContext } from 'react'
 import { Product } from '../../interfaces';
+import { useNavigate } from 'react-router-dom';
+import { ProductContext } from '../../context';
 
 import { IoEyeOutline } from "react-icons/io5";
 import { AiOutlineDelete, AiOutlineEdit } from "react-icons/ai";
 import { Box, Card, Grid, IconButton, Typography } from '@mui/material'
-import { ProductContext } from '../../context';
 
 
 interface Props {
@@ -14,6 +15,9 @@ interface Props {
 export const ProductItem: FC<Props> = ({ product }) => {
 
     const { deleteProductById } = useContext(ProductContext)
+    const navigate = useNavigate();
+
+    
 
     return (
         <Card sx={{ mb:3, padding:'2rem' }}>
@@ -47,7 +51,7 @@ export const ProductItem: FC<Props> = ({ product }) => {
                 <Grid item xs={ 12 } sm={ 3 } md={ 2 }>
                     <Typography>Acciones</Typography>
                     <Box>
-                        <IconButton color='secondary'>
+                        <IconButton color='secondary' onClick={() => navigate(`/products/${ product.slug }`)}>
                             <IoEyeOutline/>
                         </IconButton>
                         <IconButton color='secondary'>

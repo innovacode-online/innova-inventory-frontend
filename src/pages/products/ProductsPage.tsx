@@ -6,7 +6,6 @@ import { ProductContext } from '../../context';
 export const ProductsPage: FC = () => {
 
     const { products, isLoading } = useContext( ProductContext )
-
     if( isLoading ){
         return (
             <MainLayout>

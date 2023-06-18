@@ -1,9 +1,9 @@
 import { FC, useState, useEffect } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 import { ProductContext } from '.';
 
 import inventoryDb from '../../api/inventoryDb';
 import { Product } from '../../interfaces';
-import { useNavigate } from 'react-router-dom';
 
 interface PropsProvider{
     children : JSX.Element | JSX.Element[]
@@ -14,6 +14,7 @@ export const ProductProvider:FC<PropsProvider> = ({ children }) => {
     const navigate = useNavigate();
 
     const [products, setProducts] = useState([] as Product[]);
+    const [product, setProduct] = useState({} as Product);
     const [isLoading, setIsLoading] = useState(false)
 
 
@@ -32,6 +33,19 @@ export const ProductProvider:FC<PropsProvider> = ({ children }) => {
             setIsLoading( false )
         }
     }
+
+    const getProductBySlug = async (slug: string): Promise<void> => {
+        try {
+            setIsLoading( true )
+            const { data } = await inventoryDb.get(`/products/${ slug }`)
+            setProduct( data[0] )
+            setIsLoading( false )
+        } catch (error) {
+            console.log(error);
+        } finally {
+            setIsLoading( false )
+        }
+    }  
 
     const createProduct = async (image: any, product:{ name:string, description:string, stock:number, category_id:string, price:string}): Promise<void> => {
         console.log(product);
@@ -71,9 +85,11 @@ export const ProductProvider:FC<PropsProvider> = ({ children }) => {
             value={{
                 products,
                 isLoading,
+                product,
 
                 createProduct,
                 deleteProductById,
+                getProductBySlug
             }}
         >
             { children }
