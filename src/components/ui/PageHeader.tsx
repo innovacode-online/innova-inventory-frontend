@@ -19,7 +19,7 @@ export const PageHeader: FC<Props> = ({ path, textBtn, title }) => {
     }
 
     return (
-        <Box display='flex' justifyContent='space-between'>
+        <Box display='flex' mb={ 3 } justifyContent='space-between'>
             <Typography variant='h1'>{ title }</Typography>
             <Button
                 onClick={handleNavigation}
