@@ -16,12 +16,13 @@ export const lightTheme = createTheme({
             main: '#37b87f'
         },
         secondary: {
-            main: '#3A64D8'
+            main: '#da5876'
         },
         info: {
             main:'#fff',
             dark:'#242f51',
-            light:'#f5f6f6'
+            light:'#999',
+            contrastText:'#999'
         }
     },
     components: {
@@ -63,6 +64,24 @@ export const lightTheme = createTheme({
             }
         },
 
+        MuiInputBase: {
+            styleOverrides: {
+                root: {
+                    borderRadius: '10px !important'
+                }
+            }
+        },
+
+        MuiTextField: {
+            styleOverrides: {
+                root: {
+                    minWidth: '450px',
+                    width: '100%',
+                    marginBottom:'1rem',
+                    borderRadius:'40px'
+                }
+            }
+        },
 
         MuiButton: {
             defaultProps: {
@@ -101,8 +120,21 @@ export const lightTheme = createTheme({
             },
             styleOverrides: {
                 root: {
-                    boxShadow: '0px 5px 5px rgba(0,0,0,0.05)',
                     borderRadius: '10px',
+                    transitionDuration:'.3s',
+                    transitionProperty: 'all',
+                    ':hover':{
+                        boxShadow: '0px 5px 5px rgba(0,0,0,0.05)',
+                        transform:'scale(1.025)',
+                    }
+                }
+            }
+        },
+        MuiGrid:{
+            styleOverrides: {
+                root:{
+                    alignItems: 'center',
+                    justifyContent:'center'
                 }
             }
         }
