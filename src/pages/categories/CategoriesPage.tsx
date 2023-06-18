@@ -1,8 +1,23 @@
-import { FC } from 'react'
+import { FC, useContext } from 'react'
+import { CategoryContext } from '../../context'
+
 import { MainLayout } from '../../layouts'
-import { PageHeader } from '../../components'
+import { CategoryCard, LoadingView, PageHeader } from '../../components'
 
 export const CategoriesPage: FC = () => {
+
+    const { isLoading, categories } = useContext( CategoryContext );
+
+
+    if( isLoading ){
+        return (
+            <MainLayout>
+                <LoadingView/>
+            </MainLayout>
+        )
+    }
+
+
     return (
         <MainLayout>
             <PageHeader 
@@ -10,6 +25,11 @@ export const CategoriesPage: FC = () => {
                 textBtn={'Agregar categoria'} 
                 title={'Gestion de categorias'}
             />
+            {
+                categories?.map( category => (
+                    <CategoryCard key={ category.id } category={ category }/>
+                )) 
+            }
         </MainLayout>
     )
 }
