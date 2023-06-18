@@ -23,10 +23,11 @@ export const Navbar: FC = () => {
                 <Box flex={1} />
 
                 <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
-                    <List>
+                    <List sx={{ display:'flex' }}>
                         {
                             DASHBOARD_MENU.map(item => (
                                 <ListItem
+                                    key={ item.path }
                                     onClick={() => handleNavigation( item.path )}
                                 >
                                     <ListItemText sx={{ cursor:'pointer' }} primary={ item.name }/>

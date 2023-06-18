@@ -1,4 +1,5 @@
 import { FC } from 'react'
+import { Product } from '../../interfaces';
 
 import { IoEyeOutline } from "react-icons/io5";
 import { AiOutlineDelete, AiOutlineEdit } from "react-icons/ai";
@@ -6,17 +7,17 @@ import { Box, Card, Grid, IconButton, Typography } from '@mui/material'
 
 
 interface Props {
-
+    product: Product;
 }
 
-export const ProductItem: FC<Props> = ({  }) => {
+export const ProductItem: FC<Props> = ({ product }) => {
     return (
         <Card sx={{ mb:3, padding:'2rem' }}>
             <Grid container spacing={3}>
                 <Grid item xs={ 12 } sm={ 3 } md={ 2 }>
                     <Box
                         component='img'
-                        src='https://m.media-amazon.com/images/I/51uD1lmrV8L._AC_SL1000_.jpg'
+                        src={`http://127.0.0.1:8000${ product.image }`}
                         sx={{
                             width:{ xs:'100%', md:'60%' },
                             objectFit:'cover'
@@ -25,19 +26,19 @@ export const ProductItem: FC<Props> = ({  }) => {
                 </Grid>
                 <Grid item xs={ 12 } sm={ 3 } md={ 2 }>
                     <Typography>Producto:</Typography>
-                    <Typography>IPhone 14 pro max</Typography>
+                    <Typography>{ product.name }</Typography>
                 </Grid> 
                 <Grid item xs={ 12 } sm={ 3 } md={ 2 }>
                     <Typography>Categoria:</Typography>
-                    <Typography>Telefono celulares</Typography>
+                    <Typography>{ product.category.name }</Typography>
                 </Grid>
                 <Grid item xs={ 12 } sm={ 3 } md={ 2 }>
                     <Typography>Precio</Typography>
-                    <Typography>9000 Bs</Typography>
+                    <Typography>{ product.price } Bs</Typography>
                 </Grid>
                 <Grid item xs={ 12 } sm={ 3 } md={ 2 }>
                     <Typography>Cantidad</Typography>
-                    <Typography>5 disponibles</Typography>
+                    <Typography>{ product.stock } disponibles</Typography>
                 </Grid>
                 <Grid item xs={ 12 } sm={ 3 } md={ 2 }>
                     <Typography>Acciones</Typography>

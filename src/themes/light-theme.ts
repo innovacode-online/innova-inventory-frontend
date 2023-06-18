@@ -109,7 +109,7 @@ export const lightTheme = createTheme({
             defaultProps: { },
             styleOverrides: {
                 root: {
-                    display: 'flex',
+                    // display: 'flex',
                 }
             }
         },
