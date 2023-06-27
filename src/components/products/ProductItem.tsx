@@ -25,7 +25,7 @@ export const ProductItem: FC<Props> = ({ product }) => {
                 <Grid item xs={ 12 } sm={ 3 } md={ 2 }>
                     <Box
                         component='img'
-                        src={`http://127.0.0.1:8000${ product.image }`}
+                        src={`https://innova-inventory-backend-production.up.railway.app${ product.image }`}
                         sx={{
                             width:{ xs:'100%', md:'60%' },
                             objectFit:'cover'

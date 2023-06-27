@@ -75,7 +75,7 @@ export const lightTheme = createTheme({
         MuiTextField: {
             styleOverrides: {
                 root: {
-                    minWidth: '450px',
+                    // minWidth: '450px',
                     width: '100%',
                     marginBottom:'1rem',
                     borderRadius:'40px'
