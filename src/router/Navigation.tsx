@@ -1,26 +1,26 @@
-import { FC } from 'react'
+import { FC, useContext } from 'react'
 import { Routes, Route , Navigate} from 'react-router-dom'
 
 import { CategoriesPage, LoginPage, NewCategoryPage, ProductsPage, SalesPage, NewSalePage, NewProductPage, ProductPage } from '../pages'
+import { AuthContext } from '../context'
+import { LoadingView } from '../components'
+import { AuthNavigation } from './auth/AuthNavigation'
+import { DashboardNavigation } from './dashboard/DashboardNavigation'
 
 export const Navigation: FC = () => {
+    
+    const { status } = useContext(AuthContext);
+    console.log(status);
+
+    if( status == 'checking' ){
+        return <LoadingView/>
+    }
+
+
     return (
         <Routes>
-            {/* AUTHENTICATION */}
-            <Route path='/auth/login' element={ <LoginPage/> } />
-            
-            {/* DASHBOARD */}
-            {/* <Route index element={ <ProductsPage/> }/> */}
-            <Route path='/products' element={ <ProductsPage/> }/>
-            <Route path='/products/new' element={ <NewProductPage/> }/>
-            <Route path='/products/:slug' element={ <ProductPage/> }/>
-            
-            <Route path='/categories' element={ <CategoriesPage/> }/>
-            <Route path='/categories/new' element={ <NewCategoryPage/> }/>
-            
-            <Route path='/sales' element={ <SalesPage/> }/>
-            <Route path='/sales/new' element={ <NewSalePage/> }/>
-            <Route path='/' element={ <Navigate to={'products'}/> } />
+            <Route path='/auth/*' element={ <AuthNavigation/> }/>
+            <Route path='/*' element={ <DashboardNavigation/> }/>
         </Routes>
     )
 }

@@ -1,5 +1,6 @@
-import {useState} from 'react';
+import {FormEvent, useContext, useState} from 'react';
 import { Box, Button, TextField, Typography } from "@mui/material"
+import { AuthContext } from '../../context';
 
 
 export const FormLogin = () => {
@@ -7,8 +8,18 @@ export const FormLogin = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('')
 
+    const { loginUser } = useContext(AuthContext)
+
+    const handleSubmit = (e: FormEvent) => {
+        console.log({email, password});
+        e.preventDefault();
+        loginUser(email, password);
+    }
+
     return (
         <Box
+            component='form'
+            onSubmit={handleSubmit}
             sx={{
                 background:'#fff',
                 borderRadius:'10px',
@@ -30,7 +41,7 @@ export const FormLogin = () => {
                 value={ password }
                 onChange={(e) => setPassword( e.target.value )}
             />
-            <Button>Iniciar Sesion</Button>
+            <Button type='submit'>Iniciar Sesion</Button>
         </Box>
     )
 }

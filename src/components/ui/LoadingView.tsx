@@ -5,9 +5,9 @@ export const LoadingView = () => {
         <Box
             sx={{
                 display: 'flex',
-                minHeight:'70vh',
+                minHeight:'100vh',
                 justifyContent:'center',
-                alignItems:'center'
+                alignItems:'center',
             }}
         >
             <CircularProgress/>

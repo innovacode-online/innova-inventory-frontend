@@ -1,8 +1,12 @@
-import { FC } from 'react'
+import { FC, useContext } from 'react'
 import { MainLayout } from '../../layouts'
-import { PageHeader } from '../../components'
+import { PageHeader, SaleCard } from '../../components'
+import { SaleContext } from '../../context'
 
 export const SalesPage: FC = () => {
+
+    const { sales } = useContext(SaleContext);
+
     return (
         <MainLayout>
             <PageHeader 
@@ -10,6 +14,11 @@ export const SalesPage: FC = () => {
                 textBtn={'Nueva venta'} 
                 title={'Listado de ventas'}
             />
+            {
+                sales.map(sale => (
+                    <SaleCard key={ sale.id } sale={ sale }/>
+                ))
+            }
         </MainLayout>
     )
 }

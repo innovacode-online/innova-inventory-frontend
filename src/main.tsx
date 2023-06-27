@@ -6,19 +6,23 @@ import './index.css'
 import { HashRouter } from "react-router-dom";
 import { ThemeProvider, CssBaseline } from '@mui/material';
 import { lightTheme } from './themes';
-import { CategoryProvider, ProductProvider } from './context';
+import { CategoryProvider, ProductProvider, AuthProvider, SaleProvider } from './context';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
     <HashRouter>
-      <CategoryProvider>
-        <ProductProvider>
-          <ThemeProvider theme={ lightTheme }>
-            <CssBaseline/>
-            <App />
-          </ThemeProvider>
-        </ProductProvider>
-      </CategoryProvider>
+      <AuthProvider>
+        <CategoryProvider>
+          <ProductProvider>
+            <SaleProvider>
+              <ThemeProvider theme={ lightTheme }>
+                <CssBaseline/>
+                <App />
+              </ThemeProvider>
+            </SaleProvider>
+          </ProductProvider>
+        </CategoryProvider>
+      </AuthProvider>
     </HashRouter>
   </React.StrictMode>,
 )

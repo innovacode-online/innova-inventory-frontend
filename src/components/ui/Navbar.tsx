@@ -1,12 +1,14 @@
-import { FC } from 'react'
+import { FC, useContext } from 'react'
 
 import { DASHBOARD_MENU } from '../../constants';
 import { AppBar, Box, Button, List, ListItem, ListItemText, Toolbar, Typography } from "@mui/material";
 import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../context';
 
 export const Navbar: FC = () => {
+    const { logout } = useContext( AuthContext )
     const navigate = useNavigate();
-
+    
     const handleNavigation = ( path: string ) => {
         navigate( path )
     }
@@ -38,7 +40,7 @@ export const Navbar: FC = () => {
                 </Box>
 
                 <Box flex={1} />
-                <Button>
+                <Button onClick={ logout }>
                     Cerrar sesion
                 </Button>
             </Toolbar>
