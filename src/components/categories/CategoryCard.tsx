@@ -4,6 +4,7 @@ import { Category } from '../../interfaces/category';
 import { AiOutlineDelete, AiOutlineEdit } from 'react-icons/ai';
 import { Box, Card, Grid, IconButton, Typography } from '@mui/material';
 import { CategoryContext } from '../../context';
+import { formatearFecha } from '../../helpers';
 
 interface Props{
     category: Category;
@@ -26,7 +27,7 @@ export const CategoryCard: FC<Props> = ({ category }) => {
                 </Grid>
                 <Grid item xs={ 12 } md={ 3 }>
                     <Typography color='info.contrastText'>Fecha de creacion</Typography>
-                    <Typography>{ category.created_at }</Typography>
+                    <Typography>{ formatearFecha( category.created_at )}</Typography>
                 </Grid>
                 <Grid item xs={ 12 } md={ 3 } display='flex' flexDirection='column'>
                     <Typography color='info.contrastText'>Acciones</Typography>
