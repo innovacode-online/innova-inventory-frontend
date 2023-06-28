@@ -26,6 +26,11 @@ export const lightTheme = createTheme({
         }
     },
     components: {
+        MuiCssBaseline: {
+            styleOverrides: {
+                
+            }
+        },
         MuiAppBar: {
             defaultProps: {
                 elevation: 0,

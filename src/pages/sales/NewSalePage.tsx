@@ -15,12 +15,13 @@ export const NewSalePage: FC = () => {
             <Toast type={'error'} isError={ isError }/>
             <Grid
                 container
+                spacing={2}
                 sx={{ 
                     backgroundColor: 'info.main',
                     margin:'auto',
                     borderRadius: '10px',
+                    alignItems:'flex-start',
                     padding:'3rem 2rem',
-                    mb:10
                 }}
             >
                 <Grid item xs={ 12 } md={ 5 }>

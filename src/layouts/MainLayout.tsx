@@ -8,10 +8,7 @@ interface Props{
 
 export const MainLayout: FC<Props> = ({ children }) => {
     return (
-        <Box sx={{ 
-            position:'relative',
-            overflow:'hidden'
-        }}>
+        <Box sx={{ position: 'relative', overflow:'hidden' }}>
             {/* APPBAR */}
             <Navbar/>
 

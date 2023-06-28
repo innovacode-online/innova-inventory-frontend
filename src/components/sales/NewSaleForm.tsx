@@ -32,7 +32,7 @@ export const NewSaleForm: FC = () => {
 
             }   
             <Typography variant='h2' textAlign='end' mt={5}>Total: { total }Bs</Typography>    
-            <Button onClick={() => createNewSale( client )}>Generar Venta</Button>        
+            <Button onClick={() => createNewSale( client )} sx={{ width:'100%' }}>Generar Venta</Button>        
         </Box>
     )
 }
