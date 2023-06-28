@@ -8,7 +8,10 @@ interface Props{
 
 export const MainLayout: FC<Props> = ({ children }) => {
     return (
-        <>
+        <Box sx={{ 
+            position:'relative',
+            overflow:'hidden'
+        }}>
             {/* APPBAR */}
             <Navbar/>
 
@@ -19,11 +22,11 @@ export const MainLayout: FC<Props> = ({ children }) => {
                 sx={{
                     maxWidth:{ xs:'95%', md:'80%' },
                     margin:'0 auto',
-                    padding:'2rem 0'
+                    padding:'2rem 0',
                 }}
             >
                 { children }
             </Box>
-        </>
+        </Box>
     )
 }

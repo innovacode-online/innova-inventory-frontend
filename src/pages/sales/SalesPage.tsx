@@ -15,8 +15,8 @@ export const SalesPage: FC = () => {
                 title={'Listado de ventas'}
             />
             {
-                sales.map(sale => (
-                    <SaleCard key={ sale.id } sale={ sale }/>
+                sales.map((sale, index) => (
+                    <SaleCard key={ index } sale={ sale }/>
                 ))
             }
         </MainLayout>

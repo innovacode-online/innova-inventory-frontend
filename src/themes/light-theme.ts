@@ -39,6 +39,15 @@ export const lightTheme = createTheme({
                 },
             }
         },
+
+        MuiDivider: {
+            styleOverrides: {
+                root: {
+                    margin:'1rem 0'
+                }
+            }
+        },
+
         MuiListItemText:{
             styleOverrides:{
                 root:{
@@ -101,15 +110,6 @@ export const lightTheme = createTheme({
                         // backgroundColor: 'rgba(0,0,0,0.05)',
                         transition: 'all 0.3s ease-in-out'
                     }
-                }
-            }
-        },
-
-        MuiList:{
-            defaultProps: { },
-            styleOverrides: {
-                root: {
-                    // display: 'flex',
                 }
             }
         },

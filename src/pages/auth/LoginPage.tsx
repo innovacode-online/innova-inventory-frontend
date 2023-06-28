@@ -1,11 +1,14 @@
 import { Box, Grid, Typography } from '@mui/material'
-import { FC } from 'react'
-import { FormLogin } from '../../components'
+import { FC, useContext } from 'react'
+import { FormLogin, Toast } from '../../components'
 import { bgAuthPages } from '../../constants'
+import { AuthContext } from '../../context'
 
 export const LoginPage: FC = () => {
+    const { isError } = useContext(AuthContext)
     return (
-        <Box component='main'>
+        <Box component='main' overflow='hidden' position='relative'>
+            <Toast type={'error'} isError={ isError }/>
             <Grid container>
                 <Grid item xs={ 12 } md={ 6 }
                     sx={{

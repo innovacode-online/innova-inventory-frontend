@@ -5,8 +5,12 @@ import { Product } from ".";
 export interface Sale {
     id:        number;
     client:    string;
-    products:  Product[];
     total:     number;
     createdAt: string;
+    details:   Detail[];
 }
 
+export interface Detail {
+    product: Product;
+    amount:  number;
+}

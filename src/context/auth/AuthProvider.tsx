@@ -64,7 +64,6 @@ export const AuthProvider:FC<PropsProvider> = ({ children }) => {
             })
 
         } catch (error) {
-            console.log(error);
             if ( axios.isAxiosError(error) ){
                 setIsError({
                     hasError: true,
