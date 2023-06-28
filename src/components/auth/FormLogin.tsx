@@ -23,7 +23,8 @@ export const FormLogin = () => {
             sx={{
                 background:'#fff',
                 borderRadius:'10px',
-                padding:'2rem'
+                padding:'3rem 2rem',
+                textAlign:'center'
             }}
         >
             <Typography variant="h1" mb={ 4 }>Inicia sesion</Typography>
@@ -41,7 +42,7 @@ export const FormLogin = () => {
                 value={ password }
                 onChange={(e) => setPassword( e.target.value )}
             />
-            <Button type='submit'>Iniciar Sesion</Button>
+            <Button type='submit' sx={{ width:'100%' }} size='large'>Iniciar Sesion</Button>
         </Box>
     )
 }

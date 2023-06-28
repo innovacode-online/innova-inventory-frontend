@@ -18,8 +18,9 @@ export const Navbar: FC = () => {
         <AppBar>
             <Toolbar>
                 <Box display='flex' flexDirection='column' alignItems='center'>
-                    <Typography variant='h6'>Innova</Typography>
-                    <Typography sx={{ ml: 0.5 }}>Inventory</Typography>
+                    <Box component='img' src='../../../public/images/logo-innova-inventory.png' sx={{ maxWidth:'200px' }} />
+                    {/* <Typography variant='h6'>Innova</Typography> */}
+                    {/* <Typography sx={{ ml: 0.5 }}>Inventory</Typography> */}
                 </Box>
 
                 <Box flex={1} />

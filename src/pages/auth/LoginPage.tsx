@@ -16,7 +16,7 @@ export const LoginPage: FC = () => {
                         
                     }}
                 >
-                    <Typography variant='h1' fontSize='3rem' color='info.main'>Innova Inventory</Typography>
+                    <Box component='img' src='../../../public/images/logo-innova-inventory.png' sx={{ bgcolor:'#fff', maxWidth:'500px', width:'100%', borderRadius:'2rem' }} />
                 </Grid>
         
                 <Grid 
